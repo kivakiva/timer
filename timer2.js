@@ -5,9 +5,15 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+
 const recursiveFunc = () => {
 
   rl.question("Please set timer or ctrl + c to exit:  ", (answer) => {
+
+    process.on('exit', () => {
+      process.stdout.write("Thanks for using me, ciao!\n");
+      rl.close();
+    });
 
   if (answer.toLowerCase() === "b") {
     process.stdout.write('\x07');
